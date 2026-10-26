@@ -1,4 +1,4 @@
-package ykyong.reactnativebarcode.example
+package aldanoark.reactnativebarcode.example
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -1,4 +1,4 @@
-package com.ykyong.reactnativebarcode
+package com.aldanoark.reactnativebarcode
 
 import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.uimanager.SimpleViewManager

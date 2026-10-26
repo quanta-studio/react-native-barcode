@@ -1,4 +1,4 @@
-package com.ykyong.reactnativebarcode
+package com.aldanoark.reactnativebarcode
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule

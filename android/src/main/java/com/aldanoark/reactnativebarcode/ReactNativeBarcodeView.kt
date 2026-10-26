@@ -1,4 +1,4 @@
-package com.ykyong.reactnativebarcode
+package com.aldanoark.reactnativebarcode
 
 import android.content.Context
 import android.graphics.Bitmap

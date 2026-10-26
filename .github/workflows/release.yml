@@ -1,0 +1,91 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      increment:
+        description: Version bump (auto = derived from Conventional Commits since the last tag)
+        type: choice
+        options:
+          - auto
+          - patch
+          - minor
+          - major
+        default: auto
+      dry-run:
+        description: Dry run (no commit, tag, GitHub release or npm publish)
+        type: boolean
+        default: false
+
+# Queue (never cancel) overlapping runs so an in-flight publish is not interrupted.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    # Git hooks are for local dev. Lefthook would run eslint/tsc/commitlint on
+    # release-it's "chore: release" commit; LEFTHOOK=0 skips them in CI.
+    env:
+      LEFTHOOK: '0'
+    permissions:
+      # Push the release commit + tag and create the GitHub release.
+      contents: write
+      # Required for npm trusted publishing: lets the job mint an OIDC token that
+      # npm exchanges for a short-lived publish token and uses for provenance.
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # release-it needs full history and tags to compute the next version
+          # and the changelog.
+          fetch-depth: 0
+
+      # No registry-url on purpose (the setup action does not pass one). It makes
+      # setup-node write an ~/.npmrc with `_authToken=${NODE_AUTH_TOKEN}`, and an
+      # empty token can shadow the one npm mints via OIDC. The registry is pinned
+      # by `publishConfig.registry`.
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      # Trusted publishing (OIDC) needs npm >= 11.5.1; Node 22 bundles npm 10.
+      - name: Install npm with trusted publishing support
+        run: npm install -g npm@11.21.0
+
+      - name: Verify
+        run: |
+          yarn typecheck
+          yarn lint
+          yarn test --maxWorkers=2
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # release-it bumps package.json, commits "chore: release ${version}", tags
+      # v${version}, pushes, creates the GitHub release and runs `npm publish`
+      # (which builds lib/ via the `prepare` script).
+      #
+      # There is deliberately NO npm credential here: npm exchanges the Actions
+      # OIDC id-token for a publish token (npm trusted publishing). skipChecks
+      # stops release-it from running `npm whoami` up front, which fails before
+      # that exchange happens.
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_CONFIG_PROVENANCE: 'true'
+          INCREMENT: ${{ inputs.increment }}
+          DRY_RUN: ${{ inputs.dry-run }}
+        run: |
+          args=(--ci --npm.skipChecks)
+          if [[ "$INCREMENT" != "auto" ]]; then
+            args=("$INCREMENT" "${args[@]}")
+          fi
+          if [[ "$DRY_RUN" == "true" ]]; then
+            args+=(--dry-run)
+          fi
+          yarn release-it "${args[@]}"

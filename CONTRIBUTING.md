@@ -100,11 +100,12 @@ Our pre-commit hooks verify that your commit message matches this format when co
 
 We use [release-it](https://github.com/release-it/release-it) to make it easier to publish new versions. It handles common tasks like bumping version based on semver, creating tags and releases etc.
 
-To publish new versions, run the following:
+Releases are published from GitHub Actions by the [Release workflow](.github/workflows/release.yml), using [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (no npm token, with provenance). To publish a new version:
 
-```sh
-yarn release
-```
+1. Open **Actions → Release → Run workflow** on `main`.
+2. Pick the version bump (`auto` derives it from the Conventional Commits since the last tag), optionally as a dry run.
+
+The workflow bumps the version, commits and tags it, creates the GitHub release and publishes `@quanta-studio/react-native-barcode` to npm.
 
 
 ### Scripts
