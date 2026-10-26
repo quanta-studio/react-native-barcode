@@ -136,6 +136,10 @@ yarn ios              # Run on iOS simulator
 yarn android          # Run on Android emulator
 ```
 
+## Releasing
+
+Published from GitHub Actions: `.github/workflows/release.yml` (manual `workflow_dispatch` on `main`) runs `release-it`, which bumps the version, tags `v${version}`, creates the GitHub release and runs `npm publish`. npm auth is trusted publishing (OIDC), so there is no npm token secret; the trusted publisher is configured on npmjs.com for `quanta-studio/react-native-barcode` + `release.yml`.
+
 ## Key Dependencies
 
 - **Build**: `react-native-builder-bob` (builds JS + types to `lib/`)
