@@ -49,7 +49,7 @@
     "type": "git",
     "url": "git+https://github.com/quanta-studio/react-native-barcode.git"
   },
-  "author": "John Yk <yikok.yong@gmail.com> (https://github.com/yk-yong)",
+  "author": "John Yk <yikok.yong@gmail.com> (https://github.com/aldano-ark)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/quanta-studio/react-native-barcode/issues"
@@ -115,7 +115,7 @@
     "type": "all",
     "jsSrcsDir": "src",
     "android": {
-      "javaPackageName": "com.ykyong.reactnativebarcode"
+      "javaPackageName": "com.aldanoark.reactnativebarcode"
     },
     "ios": {
       "componentProvider": {

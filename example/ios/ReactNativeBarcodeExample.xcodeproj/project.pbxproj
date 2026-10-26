@@ -273,7 +273,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ykyong.reactnativebarcode.example;
+				PRODUCT_BUNDLE_IDENTIFIER = aldanoark.reactnativebarcode.example;
 				PRODUCT_NAME = ReactNativeBarcodeExample;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -300,7 +300,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ykyong.reactnativebarcode.example;
+				PRODUCT_BUNDLE_IDENTIFIER = aldanoark.reactnativebarcode.example;
 				PRODUCT_NAME = ReactNativeBarcodeExample;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

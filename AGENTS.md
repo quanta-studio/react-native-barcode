@@ -79,7 +79,7 @@ import { ReactNativeBarcodeView } from '@quanta-studio/react-native-barcode';
 ### Android
 
 - **Library**: ZXing (`com.google.zxing:core:3.5.3`)
-- **Source**: `android/src/main/java/com/ykyong/reactnativebarcode/`
+- **Source**: `android/src/main/java/com/aldanoark/reactnativebarcode/`
 - **Key files**: `ReactNativeBarcodeView.kt` (view), `ReactNativeBarcodeViewManager.kt` (bridge), `ReactNativeBarcodePackage.kt` (registration)
 - **Supported formats**: All 11 formats
 - **Rendering**: `MultiFormatWriter.encode()` → pixel-by-pixel `Bitmap` creation → `ImageView`
@@ -111,7 +111,7 @@ ios/
   ReactNativeBarcodeView.h              # Obj-C++ header
   ReactNativeBarcodeView.mm             # iOS native implementation (CoreImage)
 android/
-  src/main/java/com/ykyong/reactnativebarcode/
+  src/main/java/com/aldanoark/reactnativebarcode/
     ReactNativeBarcodeView.kt           # Android native view (ZXing)
     ReactNativeBarcodeViewManager.kt    # View manager bridge
     ReactNativeBarcodePackage.kt        # React Native package registration
