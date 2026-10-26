@@ -1,5 +1,5 @@
 {
-  "name": "@yk-yong/react-native-barcode",
+  "name": "@quanta-studio/react-native-barcode",
   "version": "0.3.0",
   "description": "Native barcode library for react-native",
   "main": "./lib/module/index.js",
@@ -32,7 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace @yk-yong/react-native-barcode-example",
+    "example": "yarn workspace @quanta-studio/react-native-barcode-example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "typecheck": "tsc",
@@ -47,15 +47,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yk-yong/react-native-barcode.git"
+    "url": "git+https://github.com/quanta-studio/react-native-barcode.git"
   },
   "author": "John Yk <yikok.yong@gmail.com> (https://github.com/yk-yong)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yk-yong/react-native-barcode/issues"
+    "url": "https://github.com/quanta-studio/react-native-barcode/issues"
   },
-  "homepage": "https://github.com/yk-yong/react-native-barcode#readme",
+  "homepage": "https://github.com/quanta-studio/react-native-barcode#readme",
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {

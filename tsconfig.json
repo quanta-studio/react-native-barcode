@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@yk-yong/react-native-barcode": ["./src/index"]
+      "@quanta-studio/react-native-barcode": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
