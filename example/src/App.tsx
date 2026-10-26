@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text } from 'react-native';
-import { ReactNativeBarcodeView } from '@yk-yong/react-native-barcode';
+import { ReactNativeBarcodeView } from '@quanta-studio/react-native-barcode';
 
 export default function App() {
   return (

@@ -1,10 +1,11 @@
-# @yk-yong/react-native-barcode
+# @quanta-studio/react-native-barcode
 
 Native barcode rendering library for React Native (New Architecture / Fabric).
 
 ## Package
 
-- **npm**: `@yk-yong/react-native-barcode`
+- **npm**: `@quanta-studio/react-native-barcode` (public, `registry.npmjs.org`)
+- **Repository**: https://github.com/quanta-studio/react-native-barcode
 - **Version**: `0.3.0`
 - **License**: MIT
 - **Platforms**: iOS, Android
@@ -52,7 +53,7 @@ type BarcodeErrorEvent = {
 ## Usage
 
 ```tsx
-import { ReactNativeBarcodeView } from '@yk-yong/react-native-barcode';
+import { ReactNativeBarcodeView } from '@quanta-studio/react-native-barcode';
 
 <ReactNativeBarcodeView
   value="https://example.com"

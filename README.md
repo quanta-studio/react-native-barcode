@@ -1,17 +1,17 @@
-# @yk-yong/react-native-barcode
+# @quanta-studio/react-native-barcode
 
 Native barcode library for react-native
 
 ## Installation
 
 ```sh
-npm install @yk-yong/react-native-barcode
+npm install @quanta-studio/react-native-barcode
 ```
 
 ## Usage
 
 ```js
-import { ReactNativeBarcodeView } from '@yk-yong/react-native-barcode';
+import { ReactNativeBarcodeView } from '@quanta-studio/react-native-barcode';
 
 // ...
 
